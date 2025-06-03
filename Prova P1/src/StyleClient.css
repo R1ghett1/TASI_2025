@@ -1,0 +1,1717 @@
+/* src/StyleClient.css */
+
+/* Reset Básico */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box; /* Garante que padding e border sejam incluídos na largura/altura */
+  background-color: white;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #222;
+  line-height: 1.6;
+  background-color: #f8f9fa; /* Um cinza claro suave para o fundo */
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* Links herdam a cor do texto pai */
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #2c3e50;
+  color: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo {
+  width: 200px;
+  height: 100px;
+}
+
+.logo-text {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+  letter-spacing: 0.5px;
+  color: #f39c12;
+  font-family: monospace;
+}
+
+/* Navegação Principal */
+.main-nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 30px; /* Espaço entre os itens do menu */
+}
+
+.main-nav li a {
+  font-size: 1.1rem;
+  font-weight: 500;
+  padding: 5px 0;
+  transition: color 0.3s ease, border-bottom 0.3s ease;
+  border-bottom: 2px solid transparent; /* Linha transparente para transição */
+  color: #f39c12; /* Cor padrão para os links da navegação */
+}
+
+.main-nav li a:hover,
+.main-nav li a:focus {
+  color: #3498db; /* Cor azul claro no hover */
+  border-bottom: 2px solid #3498db; /* Linha azul claro no hover */
+}
+
+/* Contêiner principal */
+.home-container {
+  overflow: hidden;
+  position: relative;
+  height: auto;
+}
+
+/* Seção Banner */
+.banner {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6), /* Aumenta a opacidade do overlay */
+      rgba(0, 0, 0, 0.6)
+    ),
+    url('https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+  color: #fff;
+  padding: 100px 20px; /* Mais padding para maior destaque */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 500px; /* Altura mínima para o banner */
+}
+
+.banner-content h1 {
+  font-size: 3.8rem; /* Título maior */
+  margin-bottom: 1rem;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Sombra no texto */
+  color: #f39c12; /* Laranja vibrante para o título do banner */
+}
+
+.banner-content p {
+  font-size: 1.4rem;
+  margin-bottom: 2rem;
+  max-width: 700px; /* Limita a largura do parágrafo */
+  color: #ecf0f1; /* Cor clara para o texto do banner */
+}
+
+.btn-primary {
+  background-color: #e67e22; /* Laranja para o botão primário */
+  color: #fff;
+  border: none;
+  padding: 1rem 2.5rem; /* Botão maior */
+  font-size: 1.2rem;
+  border-radius: 50px; /* Botão arredondado */
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background-color: #d35400; /* Laranja mais escuro no hover */
+  transform: translateY(-3px); /* Efeito de elevação no hover */
+}
+
+.featured-products {
+  background-color: #2c3e50;
+  padding: 5rem 20px;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 100%;
+}
+
+.featured-products h2 {
+  font-size: 3rem; /* Título maior */
+  margin-bottom: 40px;
+  color: #f39c12; /* Laranja vibrante para o título */
+  background-color: #34495e; /* Fundo ligeiramente mais claro que a seção */
+  padding: 1rem 2rem;
+  border-radius: 10px; /* Cantos mais suaves */
+  display: inline-block; /* Ajusta a largura ao conteúdo */
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* Sombra para o título */
+  border: 2px solid #f1c40f; /* Borda amarela/dourada para harmonizar com o laranja */
+}
+
+.cards {
+  display: flex; /* Garante que os itens fiquem em linha */
+  gap: 25px; /* Espaço entre os cards */
+  justify-content: center; /* Centraliza o grupo de cards na linha */
+  flex-wrap: nowrap; /* <--- CRUCIAL: Força os cards a ficarem na mesma linha */
+  margin-top: 3rem;
+  overflow-x: auto; /* <--- CRUCIAL: Adiciona barra de rolagem horizontal se os cards não couberem */
+  padding-bottom: 20px; /* Espaço para a barra de rolagem */
+  -webkit-overflow-scrolling: touch;
+}
+
+.card {
+  background: #ffffff; /* Fundo branco puro para os cards */
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Sombra mais destacada */
+  border-radius: 12px; /* Cantos mais arredondados */
+  width: 100%; /* Ocupa a largura disponível na célula do grid */
+  min-width: 312px;
+  padding: 20px; /* Mais padding interno */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex; /* Transforma o card em flex container */
+  flex-direction: column; /* Organiza conteúdo em coluna */
+  justify-content: space-between; /* Espaça o conteúdo verticalmente */
+  align-items: center; /* Centraliza horizontalmente o conteúdo */
+  text-align: center;
+  overflow: hidden; /* Garante que a imagem não vaze */
+  height: 620px; /* Defina a altura mínima desejada. Ajuste este valor. */
+}
+
+.card:hover {
+  transform: translateY(-8px) scale(1.02); /* Efeito de elevação e leve zoom no hover (combinado de ambas as definições) */
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25); /* Sombra mais intensa (combinado de ambas as definições) */
+}
+
+.card img {
+  width: 100%;
+  height: 200px; /* Altura fixa para as imagens */
+  object-fit: contain; /* Ajusta a imagem dentro da área sem cortar, adicionando barras se necessário */
+  background-color: #f8f8f8; /* Fundo cinza claro para a imagem */
+  border-radius: 8px;
+  margin-bottom: 15px;
+  transition: transform 0.3s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05); /* Pequeno zoom na imagem no hover (mantido o maior valor) */
+}
+
+.card h3 {
+  margin: 10px 0 8px;
+  font-size: 1.4rem; /* Tamanho do título do produto */
+  color: #333;
+  min-height: 2.8em; /* Garante que títulos com 1 ou 2 linhas ocupem espaço similar */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* Limita a 2 linhas */
+  -webkit-box-orient: vertical;
+}
+
+.card p {
+  font-size: 1.1rem; /* Texto do cartão maior */
+  color: #7f8c8d; /* Cor do parágrafo do card */
+  margin-bottom: 18px;
+}
+
+.product-description-card { /* Esta classe parece ser uma variação do card p, mantida separada por ser específica */
+  font-size: 0.95rem; /* Descrição um pouco menor */
+  color: #666;
+  margin-bottom: 12px;
+  flex-grow: 1; /* Permite que a descrição ocupe o espaço disponível */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* Limita a 3 linhas para a descrição */
+  -webkit-box-orient: vertical;
+}
+
+/* Container da barra de pesquisa */
+.search-bar-container {
+    display: flex; /* Permite que os itens fiquem na mesma linha */
+    align-items: center; /* Centraliza verticalmente os itens */
+    gap: 10px; /* Espaço entre o input e o botão */
+    width: 100%; /* Ocupa a largura total do seu contêiner pai */
+    max-width: 1000px; /* Define uma largura máxima para não ficar muito grande em telas largas */
+    margin: auto; /* Centraliza o contêiner e adiciona margem superior/inferior */
+}
+
+/* Barra de pesquisa */
+.product-search-input {
+    flex-grow: 1; /* Faz o input ocupar o máximo de espaço disponível */
+    padding: 12px 15px; /* Aumenta o preenchimento interno */
+    border: 1px solid #ccc; /* Borda sutil */
+    border-radius: 8px; /* Cantos arredondados */
+    font-size: 1rem; /* Tamanho da fonte */
+    width: 800px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+}
+
+.product-search-input:focus {
+    border-color: #f39c12;
+    box-shadow: 0 0 0 4px rgba(243, 156, 18, 0.3); /* Sombra maior no foco */
+    outline: none;
+    background-color: #fff;
+}
+
+.product-search-button {
+    background-color: #f39c12; /* Laranja para o botão */
+    color: white;
+    border: none;
+    padding: 10px 25px; /* Reduzi o padding para diminuir o tamanho do botão */
+    border-radius: 50px; /* Mantém o formato arredondado */
+    font-size: 1rem; /* Ajustei a fonte para 1rem para corresponder ao input */
+    cursor: pointer;
+    width: 200px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    white-space: nowrap; /* Evita que o texto quebre */
+}
+
+.product-search-button:hover {
+    background-color: #e67e22; /* Laranja mais escuro no hover */
+    transform: translateY(-2px);
+}
+
+/* Media Queries para responsividade */
+/* Garante que o input e botão fiquem na mesma linha em telas maiores */
+@media (min-width: 769px) {
+    .search-bar-container {
+        flex-wrap: nowrap; /* Impede a quebra de linha em telas maiores */
+    }
+}
+
+/* Em telas menores, eles ainda podem empilhar como antes, mas o flex-grow do input ajuda */
+@media (max-width: 768px) {
+    .search-bar-container {
+        flex-direction: column; /* Empilha input e botão */
+        gap: 15px;
+        width: 90%; /* Ajusta a largura do container */
+        max-width: none; /* Remove max-width para que ocupe a largura do pai */
+    }
+    .product-search-input,
+    .product-search-button {
+        width: 100%; /* Ocupa 100% do container empilhado */
+        max-width: none;
+    }
+}
+
+.btn-secondary {
+  background-color: #27ae60; /* Verde vibrante para o botão secundário */
+  color: white;
+  border: none;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #2ecc71; /* Verde mais claro no hover */
+  transform: translateY(-2px);
+}
+
+/* Seção Sobre Nós */
+.about-us {
+  margin: 8rem auto; /* Mais margem superior/inferior para um espaço extra */
+  max-width: 1200px;
+  padding: 0 20px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+  gap: 60px; /* Mais espaço entre imagem e texto */
+}
+
+.about-text {
+  flex: 1 1 450px; /* Ajuste para o texto */
+  padding: 20px;
+  order: 2; /* Texto depois da imagem em telas maiores */
+}
+
+.about-image {
+  flex: 1 1 450px; /* Ajuste para a imagem */
+  text-align: center;
+  order: 1; /* Imagem antes do texto em telas maiores */
+}
+
+/* Inverte a ordem em telas pequenas */
+@media (max-width: 768px) {
+  .about-text {
+    order: 1;
+  }
+  .about-image {
+    order: 2;
+  }
+}
+
+.about-text h2 {
+  font-size: 3.2rem; /* Título maior */
+  margin-bottom: 20px;
+  color: #2c3e50; /* Cor escura para o título */
+  line-height: 1.2;
+}
+
+.about-text p {
+  font-size: 1.25rem; /* Texto maior */
+  line-height: 1.8;
+  color: #34495e; /* Cor mais suave para o parágrafo */
+  margin-bottom: 25px;
+}
+
+.about-image img {
+  max-width: 100%;
+  border-radius: 15px; /* Cantos mais arredondados */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2); /* Sombra mais proeminente */
+}
+
+/* Footer (Global Footer) */
+.footer { /* Mantido para compatibilidade se algo ainda usar esta classe */
+  margin-top: 100px;
+  text-align: center;
+  padding: 30px 0;
+  color: #ecf0f1;
+  font-size: 1rem;
+  border-top: 1px solid #34495e;
+  background-color: #2c3e50;
+}
+
+/* Layout principal com menu (se aplicável) */
+#conteudoPrincipal {
+  margin-left: 250px; /* ajuste conforme a largura do seu menu */
+  padding: 20px;
+  transition: margin-left 0.3s ease, padding 0.3s ease;
+}
+
+/* Layout principal sem menu (rotas públicas) */
+.sem-menu #conteudoPrincipal {
+  margin-left: 0;
+  padding: 0;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 992px) {
+  .header {
+    padding: 10px 20px;
+  }
+
+  .main-nav ul {
+    gap: 20px;
+  }
+
+  .banner-content h1 {
+    font-size: 3rem;
+  }
+
+  .banner-content p {
+    font-size: 1.2rem;
+  }
+
+  .featured-products {
+    padding: 3rem 20px; /* Reduzir padding em telas menores */
+  }
+
+  .featured-products h2 {
+    font-size: 2.5rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .cards {
+    flex-wrap: wrap; /* Permite quebrar linha em tablets se necessário */
+    justify-content: center;
+    overflow-x: visible; /* Desabilita scroll horizontal se cards quebrarem */
+  }
+
+  .card {
+    min-width: 312px; /* Ajuste para caber melhor */
+  }
+
+  .about-us {
+    flex-direction: column;
+    align-items: center;
+    margin: 6rem auto; /* Ajuste de margem */
+    gap: 30px; /* Reduz o gap */
+  }
+
+  .about-text,
+  .about-image {
+    flex: none; /* Desativa o flex-grow */
+    width: 100%; /* Ocupa a largura total */
+    max-width: 600px; /* Limita a largura em telas maiores */
+    padding: 0 15px;
+  }
+
+  .about-text h2 {
+    font-size: 2.8rem;
+  }
+
+  .about-text p {
+    font-size: 1.15rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header {
+    flex-direction: column; /* Empilha logo e navegação */
+    padding: 15px 20px;
+  }
+
+  .main-nav {
+    margin-top: 15px;
+  }
+
+  .main-nav ul {
+    flex-direction: column; /* Itens do menu empilhados */
+    text-align: center;
+    gap: 10px;
+  }
+
+  .banner {
+    padding: 60px 15px;
+    min-height: 400px;
+  }
+
+  .banner-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .banner-content p {
+    font-size: 1rem;
+  }
+
+  .btn-primary {
+    padding: 0.8rem 2rem;
+    font-size: 1rem;
+  }
+
+  .featured-products {
+    padding: 2rem 15px;
+  }
+
+  .featured-products h2 {
+    font-size: 2rem;
+    padding: 0.7rem 1.2rem;
+  }
+
+  .cards {
+    flex-wrap: wrap; /* Garante que os cards quebrem a linha em telas menores */
+    justify-content: center;
+    overflow-x: visible; /* Desabilita o scroll horizontal */
+  }
+
+  .card {
+    width: 100%; /* Cartão ocupa a largura total */
+    max-width: 320px; /* Limita a largura para evitar que fique muito grande em telas pequenas */
+    margin: 0 auto 20px auto; /* Centraliza o cartão e adiciona margem inferior */
+  }
+
+  .about-text h2 {
+    font-size: 2.2rem;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-text {
+    font-size: 1.5rem;
+  }
+
+  .banner-content h1 {
+    font-size: 2rem;
+  }
+
+  .banner-content p {
+    font-size: 0.9rem;
+  }
+
+  .featured-products h2 {
+    font-size: 1.8rem;
+  }
+
+  .card h3 {
+    font-size: 1.2rem;
+  }
+
+  .card p {
+    font-size: 0.9rem;
+  }
+
+  .btn-secondary {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Estilos Específicos para a Página de Produtos (Produtos.js) --- */
+
+/* Ajustes no cabeçalho da página de produtos, se precisar ser diferente do Home */
+.product-page-header {
+  background-color: #34495e; /* Um tom de azul mais escuro/Marinho para o cabeçalho */
+}
+
+.product-page-header .logo-text {
+  color: #f1c40f; /* Dourado para o texto do logo na página de produtos */
+}
+
+/* Reutilizando home-container para o main, mas com padding ajustado se necessário */
+.product-page-main {
+  padding-top: 0; /* Remove padding extra se o hero já tiver */
+}
+
+/* Seção de introdução/banner da página de produtos */
+.product-hero {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.4),
+      rgba(0, 0, 0, 0.4)
+    ),
+    url('https://images.unsplash.com/photo-1518609878373-06d740f60d8b?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover; /* Nova imagem para o banner de produtos */
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  margin-bottom: 40px; 
+}
+
+.product-hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  color: #f39c12; /* Laranja vibrante */
+}
+
+.product-hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+/* Seção de todos os produtos */
+.all-products-grid {
+  margin: 40px auto;
+  max-width: 1400px; /* Largura máxima maior para a grade de produtos */
+  padding: 0 20px;
+  text-align: center;
+}
+
+.all-products-grid h2 {
+  font-size: 2.8rem;
+  margin-bottom: 30px;
+  color: #2c3e50;
+  border-bottom: 3px solid #f1c40f;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+/* Layout da grade de produtos (otimizado para muitos itens) */
+.product-grid-layout {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* Reduzi o minwidth do card para caber mais */
+  gap: 25px; /* Espaço entre os cards */
+  justify-items: center;
+  margin-top: 30px;
+  padding: 20px; /* Adicionado padding para afastar dos cantos da seção */
+  background-color: #2c3e50; /* Um fundo levemente diferente para a grade */
+  border-radius: 10px;
+}
+
+.product-price {
+  font-size: 1.25rem; /* Preço maior e mais visível */
+  font-weight: 700;
+  color: #27ae60; /* Verde para o preço, destacando */
+  margin-top: auto; /* Empurra o preço para baixo se o conteúdo for variado */
+  margin-bottom: 10px;
+}
+
+.product-category {
+  font-size: 0.85rem; /* Categoria menor */
+  color: #999;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+/* Estilos para a seção de filtro */
+.product-filter-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 30px auto;
+  max-width: 1400px;
+  padding: 20px;
+  background-color: #e0e6ec; /* Fundo para a seção de filtros */
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.filter-label {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+.filter-select {
+  padding: 10px 15px;
+  border: 1px solid #ced4da;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: #fff;
+  color: #495057;
+  cursor: pointer;
+  appearance: none; /* Remove estilo padrão do select */
+  background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23000%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13%205.1L146.2%20202.7%2018.5%2074.5a17.6%2017.6%200%200%200-25.3%200%2017.6%2017.6%200%200%200%200%2025.3l130.4%20129.5a17.6%2017.6%200%200%200%2025.3%200l130.4-129.5a17.6%2017.6%200%200%200%200-25.3z%22%2F%3E%3C%2Fsvg%3E'); /* Seta customizada */
+  background-repeat: no-repeat;
+  background-position: right 10px top 50%;
+  background-size: 12px auto;
+}
+
+.filter-select:focus {
+  border-color: #f39c12;
+  box-shadow: 0 0 0 3px rgba(243, 156, 18, 0.3);
+  outline: none;
+}
+
+/* Media Queries para Responsividade da página de produtos */
+@media (max-width: 992px) {
+  .product-hero-content h1 {
+    font-size: 2.8rem;
+  }
+  .product-grid-layout {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); /* Reduz ainda mais o minwidth */
+    gap: 20px;
+  }
+  .product-search-input {
+    max-width: 450px;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-hero {
+    padding: 60px 15px;
+  }
+  .product-hero-content h1 {
+    font-size: 2.2rem;
+  }
+  .product-hero-content p {
+    font-size: 1rem;
+  }
+  /* search-bar-container, product-search-input, product-search-button media queries moved to combined section above */
+  .all-products-grid h2 {
+    font-size: 2rem;
+  }
+  .product-grid-layout {
+    grid-template-columns: 1fr; /* Uma coluna em telas muito pequenas */
+    padding: 15px; /* Ajusta padding */
+  }
+  .card {
+    width: 95%; /* Ajusta largura para telas menores */
+    margin: 0 auto; /* Centraliza */
+  }
+  .product-filter-section {
+    flex-direction: column;
+    padding: 15px;
+    gap: 15px;
+  }
+  .filter-select {
+    width: 90%;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-search-input,
+  .product-search-button,
+  .filter-select {
+    font-size: 0.9rem;
+    padding: 10px 15px;
+  }
+}
+
+/* --- Estilos para o Footer Global (Novo Footer) --- */
+
+.main-app-footer {
+  background-color: #2c3e50; /* Fundo azul escuro, igual ao header */
+  color: #ecf0f1; /* Cor do texto principal do footer */
+  padding: 60px 20px 30px; /* Padding generoso */
+  margin-top: 100px; /* Espaço do conteúdo acima */
+  border-top: 1px solid #34495e; /* Borda sutil no topo */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Centraliza o conteúdo horizontalmente */
+  width: 100%; /* Garante que o footer ocupe a largura total */
+}
+
+.footer-content-wrapper {
+  display: flex;
+  flex-wrap: wrap; /* Permite que as seções quebrem a linha em telas menores */
+  justify-content: space-around; /* Distribui as seções uniformemente */
+  gap: 40px; /* Espaço entre as colunas do footer */
+  max-width: 1200px; /* Largura máxima para o conteúdo interno */
+  width: 100%; /* Ocupa a largura disponível até o max-width */
+  margin-bottom: 40px; /* Espaço antes da barra de copyright */
+  text-align: left; /* Alinhamento padrão do texto dentro das seções */
+}
+
+.footer-section-group {
+  flex: 1 1 250px; /* Base de 250px, flexível para preencher/quebrar */
+  margin: 0 15px; /* Espaçamento lateral entre as seções */
+}
+
+.footer-brand-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #f39c12; /* Cor laranja vibrante para o logo */
+  font-family: monospace;
+  text-align: center; /* Centraliza o logo dentro de sua seção */
+}
+
+.footer-section-group h4 {
+  font-size: 1.4rem;
+  color: #f1c40f; /* Cor dourada para os títulos das seções */
+  margin-bottom: 25px;
+  text-align: center; /* Centraliza títulos dentro de sua seção */
+}
+
+.footer-section-group p {
+  font-size: 1rem;
+  line-height: 1.8;
+  margin-bottom: 10px;
+  color: #bdc3c7; /* Cor do texto normal do footer */
+  text-align: center; /* Centraliza parágrafos */
+}
+
+.footer-section-group ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center; /* Centraliza a lista de links */
+}
+
+.footer-section-group ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section-group ul li a {
+  color: #bdc3c7;
+  transition: color 0.3s ease;
+}
+
+.footer-section-group ul li a:hover {
+  color: #f39c12; /* Cor de hover para links */
+}
+
+/* Links Sociais (dentro do footer) */
+.footer-social-links {
+  margin-top: 25px;
+  display: flex;
+  justify-content: center; /* Centraliza os ícones sociais */
+  gap: 20px; /* Espaço entre os ícones */
+}
+
+.footer-social-links a img {
+  width: 28px; /* Tamanho dos ícones */
+  height: 28px;
+  transition: transform 0.2s ease;
+}
+
+.footer-social-links a:hover img {
+  transform: translateY(-3px); /* Efeito de elevação no hover */
+}
+
+/* Barra de Copyright Inferior */
+.footer-copyright-bar {
+  border-top: 1px solid #34495e;
+  padding-top: 20px;
+  text-align: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer-copyright-bar p {
+  font-size: 0.9rem;
+  margin: 5px 0;
+  color: #bdc3c7;
+}
+
+.footer-copyright-bar a {
+  color: #bdc3c7;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.footer-copyright-bar a:hover {
+  color: #f39c12;
+}
+
+/* --- Media Queries para Responsividade do Novo Footer --- */
+@media (max-width: 768px) {
+  .footer-content-wrapper {
+    flex-direction: column; /* Empilha as seções em telas menores */
+    align-items: center; /* Centraliza as seções */
+    gap: 30px;
+  }
+
+  .footer-section-group {
+    margin: 0; /* Remove margens laterais */
+    width: 90%; /* Ocupa mais largura */
+    max-width: 400px; /* Limita a largura em telas maiores */
+    text-align: center; /* Centraliza todo o texto das seções */
+  }
+
+  .footer-brand-logo,
+  .footer-section-group h4 {
+    text-align: center; /* Garante que logo e títulos permaneçam centralizados */
+  }
+
+  .footer-social-links {
+    justify-content: center; /* Centraliza os ícones sociais */
+  }
+}
+
+@media (max-width: 480px) {
+  .main-app-footer {
+    padding: 40px 15px 20px;
+  }
+
+  .footer-brand-logo {
+    font-size: 1.8rem;
+  }
+
+  .footer-section-group h4 {
+    font-size: 1.2rem;
+  }
+
+  .footer-section-group p,
+  .footer-section-group ul li a {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Estilos Específicos para a Página do Carrinho (Carrinho.js) --- */
+
+.cart-page-main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.cart-hero {
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url('https://images.unsplash.com/photo-1528698827570-e37ade25d7ef?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover; /* Imagem para o banner do carrinho */
+  color: #fff;
+  padding: 80px 20px;
+  text-align: center;
+  margin-bottom: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.cart-hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.4);
+  color: #f39c12; /* Laranja vibrante */
+}
+
+.cart-hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 0;
+  color: #ecf0f1;
+}
+
+.cart-details-section {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os blocos quebrem a linha */
+  gap: 30px; /* Espaço entre a lista de itens e o resumo */
+  justify-content: center; /* Centraliza os blocos */
+  align-items: flex-start; /* Alinha no topo */
+}
+
+.cart-items-list {
+  flex: 2 1 600px; /* Ocupa 2 partes do espaço, com base de 600px */
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Espaço entre os itens do carrinho */
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+}
+
+.cart-item-card {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #fcfcfc;
+  box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+  flex-wrap: wrap; /* Permite que os elementos do card quebrem a linha */
+  justify-content: space-between; /* Espaça os elementos dentro do card */
+}
+
+.cart-item-image {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+  border-radius: 5px;
+  flex-shrink: 0; /* Impede que a imagem diminua */
+}
+
+.cart-item-info {
+  flex-grow: 1; /* Permite que o info ocupe espaço */
+  text-align: left;
+}
+
+.cart-item-info h3 {
+  font-size: 1.3rem;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+.cart-item-price {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #27ae60; /* Verde para o preço */
+}
+
+.cart-item-quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0; /* Margem para mobile */
+}
+
+.cart-item-quantity-controls button {
+  background-color: #555;
+  border: none;
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.cart-item-quantity-controls button:hover {
+  background-color: #27ae60;
+}
+
+.cart-item-quantity-controls span {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #555;
+}
+
+.cart-item-remove-btn {
+  background-color: #e74c3c; /* Vermelho para remover */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  font-size: 0.95rem;
+  margin-left: 15px; /* Espaçamento do lado */
+}
+
+.cart-item-remove-btn:hover {
+  background-color: #c0392b;
+}
+
+.cart-summary-box {
+  flex: 1 1 300px; /* Ocupa 1 parte do espaço, com base de 300px */
+  background-color: #fff;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cart-summary-box h2 {
+  font-size: 1.8rem;
+  color: #2c3e50;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #f1c40f;
+  padding-bottom: 10px;
+}
+
+.summary-line {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed #eee;
+  color: #555;
+}
+
+.summary-line span:first-child {
+  font-weight: 500;
+}
+
+.total-line {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: #2c3e50;
+  border-top: 2px solid #34495e;
+  padding-top: 15px;
+  margin-top: 10px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  margin-top: 20px;
+}
+
+.continue-shopping-btn {
+  width: 100%;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  margin-top: 10px;
+  background-color: #3498db; /* Azul para o botão de continuar comprando */
+}
+
+.continue-shopping-btn:hover {
+  background-color: #2980b9;
+}
+
+.empty-cart-message {
+  text-align: center;
+  padding: 50px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+  width: 100%; /* Garante que ocupe a largura completa do section */
+}
+
+.empty-cart-message p {
+  font-size: 1.5rem;
+  color: #555;
+  margin-bottom: 30px;
+}
+
+/* Media Queries para Responsividade do Carrinho */
+@media (max-width: 768px) {
+  .cart-details-section {
+    flex-direction: column; /* Empilha a lista de itens e o resumo */
+    gap: 20px;
+  }
+
+  .cart-items-list,
+  .cart-summary-box {
+    flex: none; /* Desativa o flex-grow */
+    width: 100%; /* Ocupa largura total */
+    max-width: none; /* Remove max-width */
+  }
+
+  .cart-item-card {
+    flex-direction: column; /* Empilha elementos dentro do card */
+    align-items: flex-start; /* Alinha à esquerda */
+    gap: 10px;
+  }
+
+  .cart-item-image {
+    width: 80px;
+    height: 80px;
+  }
+
+  .cart-item-quantity-controls {
+    width: 100%;
+    justify-content: center; /* Centraliza controles de quantidade */
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .cart-item-remove-btn {
+    width: 100%; /* Botão de remover ocupa a largura total */
+    margin-left: 0;
+  }
+
+  .cart-hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .cart-hero-content p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .cart-page-main {
+    padding: 20px 10px;
+  }
+
+  .cart-item-info h3 {
+    font-size: 1.1rem;
+  }
+
+  .cart-item-price {
+    font-size: 1rem;
+  }
+
+  .checkout-btn,
+  .continue-shopping-btn {
+    font-size: 1rem;
+    padding: 10px 15px;
+  }
+}
+
+/* --- Estilos Específicos para a Página VerProduto.js (Detalhes do Produto) --- */
+
+.product-detail-main {
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  min-height: 60vh; /* Garante altura mínima para estados de carregamento/erro */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; /* Centraliza conteúdo quando há pouco texto */
+}
+
+/* Estilos para mensagens de estado (carregando, erro, não encontrado) */
+.product-detail-main.loading-state,
+.product-detail-main.error-state,
+.product-detail-main.not-found-state {
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.product-detail-main p.error-message {
+  color: #e74c3c; /* Vermelho para mensagens de erro */
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Container principal dos detalhes do produto (imagem + info) */
+.product-detail-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que os blocos quebrem a linha em telas menores */
+  gap: 50px; /* Espaço entre a imagem e as informações */
+  justify-content: center; /* Centraliza os blocos na tela */
+  align-items: flex-start; /* Alinha os blocos no topo */
+  background-color: #fff;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1); /* Sombra suave para o container */
+  width: 100%; /* Ocupa a largura total disponível do pai */
+}
+
+/* Estilos da seção de imagem do produto */
+.product-detail-image {
+  flex: 1 1 400px; /* Ocupa 1 parte do espaço, com base de 400px (mínimo) */
+  text-align: center;
+  padding: 20px;
+  background-color: #f8f8f8; /* Fundo claro para a área da imagem */
+  border-radius: 10px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.05); /* Sombra interna para destaque */
+}
+
+.product-detail-image img {
+  max-width: 100%;
+  height: auto;
+  max-height: 500px; /* Limita a altura máxima da imagem */
+  display: block; /* Remove o espaço extra abaixo da imagem */
+  margin: 0 auto; /* Centraliza a imagem horizontalmente */
+  border-radius: 8px;
+  object-fit: contain; /* Ajusta a imagem dentro da área sem cortar */
+}
+
+/* Estilos da seção de informações do produto */
+.product-detail-info {
+  flex: 1 1 500px; /* Ocupa 1 parte do espaço, com base de 500px (mínimo) */
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Espaço entre os elementos de informação */
+  text-align: left; /* Alinhamento do texto padrão */
+}
+
+.product-detail-title {
+  font-size: 3.2rem;
+  color: #2c3e50; /* Cor escura para o título */
+  margin-bottom: 10px;
+  line-height: 1.2;
+}
+
+.product-detail-category {
+  font-size: 1.1rem;
+  color: #7f8c8d; /* Cinza para a categoria */
+  margin-bottom: 10px;
+  font-style: italic;
+}
+
+.product-detail-description {
+  font-size: 1.2rem;
+  color: #34495e; /* Azul acinzentado para a descrição */
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.product-detail-price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #27ae60; /* Verde vibrante para o preço */
+  margin-bottom: 30px;
+}
+
+/* Seletor de quantidade */
+.product-quantity-selector {
+  display: flex;
+  align-items: center; /* Garante alinhamento vertical central */
+  justify-content: center; /* Centraliza horizontalmente o grupo (se necessário) */
+  gap: 15px; /* Espaço entre os elementos */
+  margin-bottom: 30px;
+  height: 40px; /* Define uma altura fixa para o container, igual à dos botões */
+}
+
+.product-quantity-selector button {
+  background-color: #f39c12;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px; /* Mantenha a altura dos botões igual à altura do container */
+  font-size: 1.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  line-height: 1;
+}
+
+.product-quantity-selector button:hover {
+  background-color: #e67e22;
+  transform: translateY(-2px);
+}
+
+.product-quantity-selector span {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #2c3e50;
+  min-width: 30px;
+  text-align: center;
+  line-height: 1;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Botão "Adicionar ao Carrinho" */
+.add-to-cart-btn {
+  width: 100%;
+  max-width: 350px; /* Limita a largura do botão para não ficar muito largo */
+  padding: 18px 30px;
+  font-size: 1.4rem;
+  border-radius: 50px; /* Botão arredondado */
+}
+
+/* --- Media Queries para Responsividade da Página VerProduto.js --- */
+@media (max-width: 992px) {
+  .product-detail-container {
+    flex-direction: column; /* Empilha imagem e informações */
+    align-items: center; /* Centraliza os blocos empilhados */
+    gap: 30px;
+    padding: 30px;
+  }
+
+  .product-detail-image,
+  .product-detail-info {
+    flex: none; /* Remove o comportamento flexível */
+    width: 100%; /* Ocupa a largura total disponível */
+    max-width: 500px; /* Limita a largura máxima em telas médias */
+    text-align: center; /* Centraliza o texto nas informações do produto */
+  }
+
+  .product-detail-info {
+    gap: 10px; /* Reduz o espaçamento entre os elementos */
+  }
+
+  .product-detail-title {
+    font-size: 2.5rem;
+  }
+
+  .product-detail-description {
+    font-size: 1.1rem;
+  }
+
+  .product-detail-price {
+    font-size: 2rem;
+  }
+
+  .add-to-cart-btn {
+    max-width: 100%; /* Ocupa 100% da largura em telas menores */
+  }
+}
+
+@media (max-width: 768px) {
+  .product-detail-main {
+    padding: 20px 15px;
+  }
+
+  .product-detail-container {
+    padding: 25px;
+    gap: 20px;
+  }
+
+  .product-detail-title {
+    font-size: 2rem;
+  }
+
+  .product-detail-price {
+    font-size: 1.8rem;
+  }
+
+  .product-quantity-selector {
+    justify-content: center; /* Centraliza o seletor de quantidade */
+  }
+
+  .add-to-cart-btn {
+    font-size: 1.2rem;
+    padding: 15px 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .product-detail-image img {
+    max-height: 300px; /* Limita a altura da imagem em telas muito pequenas */
+  }
+
+  .product-detail-title {
+    font-size: 1.8rem;
+  }
+
+  .product-detail-description {
+    font-size: 0.95rem;
+  }
+
+  .product-detail-price {
+    font-size: 1.5rem;
+  }
+
+  .product-quantity-selector button {
+    width: 35px;
+    height: 35px;
+    font-size: 1.5rem;
+  }
+
+  .product-quantity-selector span {
+    font-size: 1.5rem;
+  }
+}
+
+/* Estilos para os controles de Paginação */
+.pagination-controls {
+  display: flex;
+  justify-content: center; /* Centraliza os botões de paginação */
+  align-items: center;
+  gap: 20px; /* Espaço entre os elementos */
+  margin-top: 40px; /* Margem superior para separar da grade de produtos */
+  padding: 15px 20px;
+  background-color: #f0f2f5;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.btn-pagination {
+  background-color: #3498db; /* Azul para os botões de paginação */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}.cards
+
+.btn-pagination:hover:not(:disabled) {
+  background-color: #2980b9; /* Azul mais escuro no hover */
+  transform: translateY(-2px);
+}
+
+.btn-pagination:disabled {
+  background-color: #cccccc; /* Cinza para botões desabilitados */
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.pagination-info {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+/* Media Queries para Paginação em telas menores */
+@media (max-width: 768px) {
+  .pagination-controls {
+    flex-direction: column; /* Empilha os botões em telas pequenas */
+    gap: 15px;
+  }
+}
+
+
+/* --- Checkout Page General Styles --- */
+.checkout-page-main {
+    padding: 30px 20px; /* Mais padding nas laterais */
+    background-color: #f0f2f5; /* Fundo cinza suave */
+    min-height: calc(100vh - var(--header-height, 80px) - var(--footer-height, 60px)); /* Ajusta altura dinâmica */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px; /* Espaço entre as seções */
+}
+
+/* --- Hero Section (Top Banner) --- */
+.checkout-hero {
+    background: linear-gradient(135deg, #007bff, #0056b3); /* Gradiente azul */
+    color: white;
+    padding: 50px 20px; /* Mais padding vertical */
+    text-align: center;
+    width: 100%;
+    border-radius: 8px; /* Cantos arredondados */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada */
+    max-width: 1000px; /* Limite de largura para o hero */
+}
+
+.checkout-hero-content h1 {
+    font-size: 2.8rem; /* Fonte maior para o título */
+    margin-bottom: 15px;
+    font-weight: 700; /* Negrito */
+}
+
+.checkout-hero-content p {
+    font-size: 1.2rem;
+    opacity: 0.9; /* Um pouco transparente */
+}
+
+/* --- Form Section Container --- */
+.checkout-form-section {
+    width: 100%;
+    max-width: 900px; /* Aumenta a largura máxima para o formulário */
+    background-color: white;
+    padding: 40px; /* Mais padding interno */
+    border-radius: 12px; /* Cantos mais arredondados */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Sombra mais suave e espalhada */
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espaço entre seções do formulário (dados do comprador, pagamento, etc.) */
+}
+
+/* --- Form Section Headings --- */
+.checkout-form h2 {
+    color: #343a40; /* Cor mais escura para títulos de seção */
+    font-size: 2rem; /* Título de seção maior */
+    margin-bottom: 25px;
+    border-bottom: 2px solid #e9ecef; /* Borda inferior sutil */
+    padding-bottom: 15px;
+    text-align: left; /* Alinha o título à esquerda */
+    font-weight: 600;
+}
+
+/* --- Form Groups (Labels & Inputs) --- */
+.form-group {
+    margin-bottom: 25px; /* Mais espaço entre os grupos de formulário */
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px; /* Mais espaço entre label e input */
+    font-weight: 600; /* Um pouco mais de negrito */
+    color: #495057; /* Cor de texto padrão */
+    font-size: 1.05rem; /* Fonte ligeiramente maior */
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="number"], /* Adicionado para garantir inputs numéricos */
+.form-group select,
+.form-group textarea { /* Adicionado textarea se houver */
+    width: 100%;
+    padding: 14px 15px; /* Mais padding */
+    border: 1px solid #ced4da; /* Borda mais neutra */
+    border-radius: 8px; /* Cantos mais arredondados */
+    font-size: 1.05rem; /* Tamanho da fonte consistente */
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Transição suave */
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #80bdff; /* Borda azul ao focar */
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25); /* Sombra azul ao focar */
+    outline: none; /* Remove outline padrão do navegador */
+}
+
+/* --- Inline Form Groups (e.g., Expiration Date, CVV) --- */
+.form-group-inline {
+    display: flex;
+    gap: 25px; /* Mais espaço entre campos inline */
+    flex-wrap: wrap; /* Permite quebrar linha em telas menores */
+}
+
+.form-group-inline > div {
+    flex: 1; /* Faz os itens ocuparem o mesmo espaço */
+    min-width: 120px; /* Garante que os campos não fiquem muito pequenos */
+}
+
+/* --- Payment Details Card (Credit Card fields) --- */
+.payment-details-card {
+    border: 1px solid #b8daff; /* Borda azul clara */
+    background-color: #e0f0ff; /* Fundo azul muito claro */
+    padding: 30px; /* Mais padding */
+    border-radius: 10px;
+    margin-top: 30px; /* Mais espaço acima */
+}
+
+/* --- Final Summary & Buttons --- */
+.checkout-summary-final {
+    text-align: right;
+    margin-top: 40px; /* Mais espaço acima */
+    padding-top: 25px;
+    border-top: 2px dashed #dee2e6; /* Borda tracejada */
+}
+
+.checkout-summary-final h3 {
+    font-size: 2.2rem; /* Total maior */
+    color: #28a745; /* Verde para o total */
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+/* --- Buttons --- */
+.btn-primary.checkout-final-btn,
+.btn-secondary.back-to-cart-btn {
+    width: 100%;
+    padding: 18px; /* Mais padding nos botões */
+    font-size: 1.3rem; /* Fonte maior para os botões */
+    font-weight: 600;
+    margin-top: 15px; /* Espaço entre os botões */
+    border: none;
+    border-radius: 8px; /* Cantos arredondados */
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Transições suaves */
+    text-decoration: none; /* Para o Link */
+    display: block; /* Para o Link se comportar como um botão de bloco */
+    text-align: center;
+}
+
+.btn-primary.checkout-final-btn {
+    background-color: #28a745; /* Verde vibrante */
+    color: white;
+}
+
+.btn-primary.checkout-final-btn:hover {
+    background-color: #218838; /* Verde mais escuro no hover */
+    transform: translateY(-2px); /* Efeito de "levantar" */
+}
+
+.btn-secondary.back-to-cart-btn {
+    background-color: #6c757d; /* Cinza escuro */
+    color: white;
+}
+
+.btn-secondary.back-to-cart-btn:hover {
+    background-color: #5a6268; /* Cinza mais escuro no hover */
+    transform: translateY(-2px);
+}
+
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 768px) {
+    .checkout-page-main {
+        padding: 20px 15px;
+        gap: 20px;
+    }
+    .checkout-hero {
+        padding: 30px 15px;
+        border-radius: 0; /* Remove border-radius em telas pequenas */
+    }
+    .checkout-hero-content h1 {
+        font-size: 2rem;
+    }
+    .checkout-hero-content p {
+        font-size: 1rem;
+    }
+    .checkout-form-section {
+        padding: 20px;
+        border-radius: 0; /* Remove border-radius em telas pequenas */
+    }
+    .checkout-form h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        padding-bottom: 10px;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-group-inline {
+        flex-direction: column; /* Empilha campos inline */
+        gap: 0;
+    }
+    .form-group-inline > div {
+        margin-bottom: 20px;
+    }
+    .form-group-inline > div:last-child {
+        margin-bottom: 0; /* Remove margin do último item empilhado */
+    }
+    .payment-details-card {
+        padding: 20px;
+    }
+    .checkout-summary-final {
+        margin-top: 30px;
+        padding-top: 20px;
+    }
+    .checkout-summary-final h3 {
+        font-size: 1.8rem;
+    }
+    .btn-primary.checkout-final-btn,
+    .btn-secondary.back-to-cart-btn {
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+}
+
+/* Define variáveis CSS para alturas (opcional, mas bom para consistência) */
+:root {
+    --header-height: 80px; /* Exemplo de altura do seu cabeçalho */
+    --footer-height: 60px;  /* Exemplo de altura do seu rodapé */
+}
+
+/* Garante que o input para CEP funcione com o padrão HTML5 */
+input[type="text"][pattern] {
+    -webkit-appearance: textfield; /* Para melhor visualização em alguns navegadores */
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+input[type="text"][pattern]:invalid {
+    box-shadow: 0 0 0 2px rgba(255, 0, 0, 0.3); /* Sombra vermelha para CEP inválido */
+}
+
+input[type="text"][pattern]:valid {
+    box-shadow: 0 0 0 2px rgba(0, 128, 0, 0.3); /* Sombra verde para CEP válido */
+}
+
+
