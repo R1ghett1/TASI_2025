@@ -1,0 +1,167 @@
+/* src/index.css */
+
+/* Reset de margens e paddings */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f4f7fc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  /* Estilo da calculadora */
+  .calculator {
+    width: 360px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+  }
+  
+  /* Display da calculadora */
+  .display {
+    margin-bottom: 20px;
+    text-align: right;
+    padding: 10px;
+  }
+  
+  input {
+    width: 100%;
+    height: 60px;
+    font-size: 36px;
+    text-align: right;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    background-color: #f9f9f9;
+    color: #333;
+    padding: 10px;
+    transition: border-color 0.3s ease;
+    box-shadow: inset 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  input:focus {
+    outline: none;
+    border-color: #4caf50; /* Cor de foco verde */
+  }
+  
+  input::placeholder {
+    color: #888;
+    font-size: 24px;
+  }
+  
+  /* Botões da calculadora */
+  .buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  
+  button {
+    font-size: 28px;
+    padding: 20px;
+    background-color: #e0e0e0;
+    border: 2px solid #ddd;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  button:hover {
+    background-color: #c8c8c8;
+  }
+  
+  button:active {
+    background-color: #b0b0b0;
+    transform: scale(0.98);
+  }
+  
+  /* Botões de Operadores */
+  button.operator {
+    background-color: #4caf50;
+    color: white;
+  }
+  
+  button.operator:hover {
+    background-color: #45a049;
+  }
+  
+  button.operator:active {
+    background-color: #388e3c;
+  }
+  
+  /* Botão C (Clear) */
+  button.clear {
+    background-color: #f44336;
+    color: white;
+  }
+  
+  button.clear:hover {
+    background-color: #e53935;
+  }
+  
+  button.clear:active {
+    background-color: #d32f2f;
+  }
+  
+  /* Botão = (Igual) */
+  button.equals {
+    background-color: #2196f3;
+    color: white;
+    grid-column: span 2; /* Ocupa duas colunas */
+  }
+  
+  button.equals:hover {
+    background-color: #1976d2;
+  }
+  
+  button.equals:active {
+    background-color: #1565c0;
+  }
+  
+  /* Botões numéricos e ponto */
+  button.number {
+    background-color: #f5f5f5;
+    color: #333;
+  }
+  
+  button.number:hover {
+    background-color: #eeeeee;
+  }
+  
+  button.number:active {
+    background-color: #dcdcdc;
+  }
+  
+  /* Responsividade */
+  @media (max-width: 400px) {
+    .calculator {
+      width: 100%;
+      padding: 15px;
+    }
+  
+    input {
+      font-size: 30px;
+      padding: 8px;
+    }
+  
+    button {
+      font-size: 22px;
+      padding: 18px;
+    }
+  
+    .buttons {
+      gap: 15px;
+    }
+  }
+  
